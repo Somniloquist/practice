@@ -1,12 +1,12 @@
 require "pry-byebug"
 
 def substrings(phrase, dictionary)
-  phrase = phrase.split()
+  phrase = phrase.downcase.split()
   results = Hash.new(0)
 
   for word in phrase
     for substring in dictionary
-      word.include?(substring) ? results[substring] += 1 : results
+      word.include?(substring.downcase) ? results[substring] += 1 : results
     end
   end
 
